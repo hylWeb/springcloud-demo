@@ -1,0 +1,25 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+      - id: test-service
+        uri: lb://test-service
+        predicates:
+          - Path=/test/**
+        filters:
+          - StripPrefix=1 #如果链接为http://localhost:8888/test/abc/test 将会转发到http://localhost:8081/abc/test，去掉URL路径中的1个前缀，没有配置只是把IP改改变了转发
+      - id: taobao
+        uri: https://www.taobao.com/
+        predicates:
+          - Path=/taobao/**
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
