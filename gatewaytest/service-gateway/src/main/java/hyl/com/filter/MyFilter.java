@@ -22,14 +22,8 @@ public class MyFilter implements GlobalFilter {
         URI uri = exchange.getRequest().getURI();
         System.out.println(uri.getPath());
 
-     /*   LinkedHashSet requiredAttribute = exchange.getRequiredAttribute(ServerWebExchangeUtils.GATEWAY_ORIGINAL_REQUEST_URL_ATTR);
-        if (requiredAttribute != null) {
-            Iterator<URI> iterator = requiredAttribute.iterator();
-            while (iterator.hasNext()){
-                URI next = iterator.next();
-                System.out.println(next.getPath());
-            }
-        }*/
+        System.out.println("这里做点登录，权限拦截的什么吧。。。");
+
         ServerHttpRequest request = exchange.getRequest();
         String method = request.getMethod().toString();
         System.out.println(method);

@@ -7,10 +7,10 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: test-service
-        uri: lb://test-service
+      - id: service-consumer
+        uri: lb://service-consumer
         predicates:
-          - Path=/test/**
+          - Path=/cc/**
         filters:
           - StripPrefix=1 #如果链接为http://localhost:8888/test/abc/test 将会转发到http://localhost:8081/abc/test，去掉URL路径中的1个前缀，没有配置只是把IP改改变了转发
       - id: taobao
@@ -29,9 +29,9 @@ spring:
       enabled: true
 
 #用了consul 这个就没有用了
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+#eureka:
+ # instance:
+  #  prefer-ip-address: true
+  #client:
+   # service-url:
+    #  defaultZone: http://localhost:8761/eureka/
