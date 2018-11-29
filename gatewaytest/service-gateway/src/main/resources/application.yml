@@ -17,6 +17,18 @@ spring:
         uri: https://www.taobao.com/
         predicates:
           - Path=/taobao/**
+  consul:
+    enabled: true
+    host: 127.0.0.1
+    port: 8500
+    discovery:
+      healthCheckPath: /actuator/health
+      healthCheckInterval: 5s
+      instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+      register: true
+      enabled: true
+
+#用了consul 这个就没有用了
 eureka:
   instance:
     prefer-ip-address: true

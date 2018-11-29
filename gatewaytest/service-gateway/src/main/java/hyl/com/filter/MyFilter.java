@@ -19,7 +19,6 @@ import java.util.Map;
 public class MyFilter implements GlobalFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        System.out.println("进来了");
         URI uri = exchange.getRequest().getURI();
         System.out.println(uri.getPath());
 
@@ -40,8 +39,6 @@ public class MyFilter implements GlobalFilter {
         for (Map.Entry<String, List<String>> entry : httpHeaders.entrySet()) {
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
-
-
         return chain.filter(exchange);
     }
 }
