@@ -34,7 +34,7 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-        <!-- cache 开始,必须要引log4j,否则会报错-->
+        <!-- cache 结束,必须要引log4j,否则会报错-->
 
         <!-- 要调用其它服务 开启feign-->
        <!-- <dependency>

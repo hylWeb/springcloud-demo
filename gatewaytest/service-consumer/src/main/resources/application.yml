@@ -4,21 +4,6 @@ spring:
   application:
     name: service-consumer
 
-#redis-cache 相关
-redis:
-    pool:
-         maxActive: 300
-         maxIdle: 100
-         maxWait: 1000
-    host: ${REDIS_HOST:localhost}
-    port:  ${REDIS_PORT:6379}
-    password: jawave
-    timeout: 2000
-    # 服务或应用名
-    sysName: ace-admin
-    enable: true
-    database: 0
-
 #开启服务降级
 feign:
   hystrix:
